@@ -1,48 +1,21 @@
-
-
-class Oscillator  {
- 
-
-Using a PVector to track two angles!
-
-  PVector angle;
-  PVector velocity;
-  PVector amplitude;
- 
-  Oscillator()  {
-    angle = new PVector();
-    velocity = new PVector(random(-0.05,0.05),random(-0.05,0.05));
-
-Random velocities and amplitudes
-
-    amplitude = new PVector(random(width/2),random(height/2));
-  }
- 
-  void oscillate()  {
-    angle.add(velocity);
-  }
- 
-  void display()  {
-
-Oscillating on the x-axis
-
-    float x = sin(angle.x)*amplitude.x;
-
-Oscillating on the y-axis
-
-    float y = sin(angle.y)*amplitude.y;
- 
-    pushMatrix();
-    translate(width/2,height/2);
-    stroke(0);
-    fill(175);
-
-Drawing the Oscillator as a line connecting a circle
-
-    line(0,0,x,y);
-    ellipse(x,y,16,16);
-    popMatrix();
-  }
+void setup() {
+  size(640,360);
 }
 
+float angle = 0;
+float aVelocity = 0.3;
 
+void draw() {
+  background(0);
+
+  float amplitude = 6;
+  float x = amplitude * cos(angle);
+  // Using the concept of angular velocity to increment an angle variable
+  angle += aVelocity;
+
+  ellipseMode(CENTER);
+  noStroke();
+  fill(0, 255, 255);
+  translate(width/2,height/2);
+  ellipse(x,0,4,4);
+}
