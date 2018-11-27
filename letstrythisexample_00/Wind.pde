@@ -1,7 +1,7 @@
 String windFile = "wind_nospaces.csv";
 
 
-int size2 = 10;
+int size2 = 3;
 
 
 
@@ -37,11 +37,13 @@ void loadWind() {
 void vizWind() {
   //background(255);
 
+  /*
   pushMatrix();
   translate(width/2, height/2);
   rotate(rotate);
   pushMatrix();
   translate(-width/2, -height/2);
+  */
 
 
 
@@ -59,7 +61,9 @@ void vizWind() {
   }
 
 
+  /*
   popMatrix();
   rotate += 0.01;
   popMatrix();
+  */
 }

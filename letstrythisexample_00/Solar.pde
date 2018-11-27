@@ -36,11 +36,13 @@ void loadSolar() {
 void vizSolar() {
   //background(255);
 
+  /*
   pushMatrix();
   translate(width/2, height/2);
   rotate(rotate);
   pushMatrix();
   translate(-width/2, -height/2);
+  */
 
 
 
@@ -58,7 +60,9 @@ void vizSolar() {
   }
 
 
+  /*
   popMatrix();
   rotate += 0.01;
   popMatrix();
+  */
 }
