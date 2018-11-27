@@ -2,7 +2,7 @@
 String waterFile = "water_nospaces.csv";
 
 
-int size3 = 1;
+int waterSize = 1;
 
 
 
@@ -37,19 +37,18 @@ void loadWater() {
 
 void vizWater() {
   //background(255);
-  /*
   pushMatrix();
   translate(width/2, height/2);
-  rotate(rotate);
+  //rotate(rotate);
   pushMatrix();
   translate(-width/2, -height/2);
-  */
 
 
 
   //map.draw();
   //fill(0, 200);
   //rect(0, 0, width, height);
+  background(0);
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {
@@ -57,7 +56,7 @@ void vizWater() {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
     fill(147, 203, 255, 100);
     //fill(0);
-    ellipse(pos.x, pos.y, size3, size3);
+    ellipse(pos.x, pos.y, waterSize, waterSize);
   }
 
 

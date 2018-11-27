@@ -1,7 +1,7 @@
 String windFile = "wind_nospaces.csv";
 
 
-int size2 = 3;
+int windSize = 3;
 
 
 
@@ -37,13 +37,11 @@ void loadWind() {
 void vizWind() {
   //background(255);
 
-  /*
   pushMatrix();
   translate(width/2, height/2);
-  rotate(rotate);
+  //rotate(rotate);
   pushMatrix();
   translate(-width/2, -height/2);
-  */
 
 
 
@@ -57,7 +55,7 @@ void vizWind() {
     ScreenPosition pos = map.getScreenPosition(windPos.location);
     fill(147, 255, 199, 100);
     //fill(0);
-    ellipse(pos.x, pos.y, size2, size2);
+    ellipse(pos.x, pos.y, windSize, windSize);
   }
 
 

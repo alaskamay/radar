@@ -2,7 +2,7 @@
 String solarFile = "solar_nospaces.csv";
 
 
-int size1 = 1;
+int solarSize = 1;
 
 
 
@@ -36,13 +36,11 @@ void loadSolar() {
 void vizSolar() {
   //background(255);
 
-  /*
   pushMatrix();
   translate(width/2, height/2);
-  rotate(rotate);
+  //rotate(rotate);
   pushMatrix();
   translate(-width/2, -height/2);
-  */
 
 
 
@@ -56,7 +54,7 @@ void vizSolar() {
     ScreenPosition pos = map.getScreenPosition(solarPos.location);
     fill(255, 231, 147, 100);
     //fill(0);
-    ellipse(pos.x, pos.y, size1, size1);
+    ellipse(pos.x, pos.y, solarSize, solarSize);
   }
 
 
