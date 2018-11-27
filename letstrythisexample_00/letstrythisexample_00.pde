@@ -10,6 +10,10 @@ float solar = 0;
 
 float t = 0;
 
+float rotate = 0.1;
+
+UnfoldingMap map;
+
 void setup() {
   //fullScreen();
   size(1050, 1050, P3D);
@@ -23,7 +27,9 @@ void setup() {
   vizMask.ellipse(width/2, height/2, height, height);
   vizMask.endDraw();
   
-  load();
+  loadSolar();
+  loadWater();
+  loadWind();
 } 
 
 void draw() {
@@ -31,7 +37,10 @@ void draw() {
   t += 1.0 / 60.0 / 15.0;
   
   // draw viz
-  viz();
+  vizWind();
+  vizWater();
+  vizSolar();
+  
 
   // get image
   PImage i = get();
