@@ -1,7 +1,7 @@
 String windFile = "wind_nospaces.csv";
 
 
-int size2 = 1;
+int size2 = 10;
 
 
 
@@ -22,7 +22,7 @@ void loadWind() {
   Table windDataCSV = loadTable(windFile, "header, csv");
   for (TableRow windPosRow : windDataCSV.rows()) {
 
-    windPos windPos = new WindPos();
+    WindPos windPos = new WindPos();
 
     float lat = windPosRow.getFloat("Latitude");
     float lng = windPosRow.getFloat("Longitude");
@@ -53,7 +53,7 @@ void vizWind() {
   for (WindPos windPos : windPositions) {
 
     ScreenPosition pos = map.getScreenPosition(windPos.location);
-    fill(255, 231, 147, 100);
+    fill(147, 255, 199, 100);
     //fill(0);
     ellipse(pos.x, pos.y, size2, size2);
   }

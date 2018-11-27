@@ -8,7 +8,7 @@ int size3 = 1;
 
 
 
-ArrayList<WindPos> waterPositions = new ArrayList();
+ArrayList<WaterPos> waterPositions = new ArrayList();
 
 
 void loadWater() {
@@ -51,10 +51,10 @@ void vizWater() {
   //rect(0, 0, width, height);
   noStroke();
 
-  for (WindPos waterPos : waterPositions) {
+  for (WaterPos waterPos : waterPositions) {
 
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
-    fill(255, 231, 147, 100);
+    fill(147, 203, 255, 100);
     //fill(0);
     ellipse(pos.x, pos.y, size3, size3);
   }
