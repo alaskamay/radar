@@ -4,6 +4,8 @@ ArrayList<WaterPos> waterPositions = new ArrayList();
 float pointDist;
 float pointRad;
 float pointAngle;
+float pointerDist;
+float pointOpacity;
 
 void loadWater() {
   background(0);
@@ -31,12 +33,13 @@ void vizWater() {
 
   for (WaterPos waterPos : waterPositions) {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
-    pointDist = dist(0, 0, pos.x, pos.y);
+    pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRad = acos((pos.x - (width / 2)) / pointDist);
     pointAngle = degrees(pointRad);
-    println(pointAngle);
-    if((pointAngle - angle) < 3 && (pointAngle - angle) > 0) {
-      fill(147, 203, 255, 100);
+    pointerDist = pointAngle - angle;
+    if(pointerDist < 3 && pointerDist > 0) {
+      pointOpacity = map(pointerDist, 0, 3, 0, 100);
+      fill(147, 203, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
   }
