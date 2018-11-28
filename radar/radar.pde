@@ -10,7 +10,7 @@ float solar = 0;
 
 float t = 0;
 
-int count = 50;
+int angle = 0;
 int position = 0;
 
 UnfoldingMap map;
@@ -36,9 +36,9 @@ void setup() {
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  count = count + 5;
-  if(count > 1000) {
-    count = 50;
+  angle = angle + 5;
+  if(angle > 360) {
+    angle = 0;
   }
 
   // draw viz
