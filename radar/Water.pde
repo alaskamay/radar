@@ -6,7 +6,7 @@ void loadWater() {
   background(0);
   // Create interactive map centered around Switzerland
   map = new UnfoldingMap(this);
-  map.zoomAndPanTo(7, new Location(46.986991, 8.178334));
+  map.zoomAndPanTo(new Location(46.986991, 8.178334), 8);
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
 
@@ -28,7 +28,7 @@ void vizWater() {
 
   for (WaterPos waterPos : waterPositions) {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
-    if((pos.x - count) < 6 && (pos.x - count) > 0) {
+    if((pos.x - count) < 20 && (pos.x - count) > 0) {
       fill(147, 203, 255, 100);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }

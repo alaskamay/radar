@@ -10,7 +10,7 @@ float solar = 0;
 
 float t = 0;
 
-int count = 300;
+int count = 50;
 int position = 0;
 
 UnfoldingMap map;
@@ -28,17 +28,17 @@ void setup() {
   vizMask.ellipse(width/2, height/2, height, height);
   vizMask.endDraw();
   
-  loadSolar();
+  //loadSolar();
   loadWater();
-  loadWind();
+  //loadWind();
 } 
 
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  count = count + 3;
-  if(count > 900) {
-    count = 200;
+  count = count + 5;
+  if(count > 1000) {
+    count = 50;
   }
 
   // draw viz
