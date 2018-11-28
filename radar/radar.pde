@@ -36,10 +36,9 @@ void setup() {
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  count++;
-  print(count);
-  if(count > 800) {
-    count = 300;
+  count = count + 3;
+  if(count > 900) {
+    count = 200;
   }
 
   // draw viz
@@ -54,7 +53,7 @@ void draw() {
   i.mask(vizMask);
 
   // draw image
-  background(0);
+  background(255);
   image(i, 0, 0, width, height);
 
   // reset time

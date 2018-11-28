@@ -28,7 +28,7 @@ void vizWater() {
 
   for (WaterPos waterPos : waterPositions) {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
-    if((pos.x - count) < 10 && (pos.x - count) > 0) {
+    if((pos.x - count) < 6 && (pos.x - count) > 0) {
       fill(147, 203, 255, 100);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
