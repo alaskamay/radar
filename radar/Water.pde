@@ -22,7 +22,6 @@ void loadWater() {
   }
 }
 
-
 void vizWater() {
   background(0);
   noStroke();

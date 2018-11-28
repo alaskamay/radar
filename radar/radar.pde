@@ -37,9 +37,9 @@ void draw() {
   t += 1.0 / 60.0 / 15.0;
   
   // draw viz
-//  vizWind();
+  vizWind();
   vizWater();
-//  vizSolar();
+  vizSolar();
   
 
   // get image
