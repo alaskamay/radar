@@ -2,20 +2,26 @@ void setup() {
   size(640,360);
 }
 
-float angle = 0;
-float aVelocity = 0.3;
+PVector angle;
+PVector velocity;
+PVector amplitude;
 
 void draw() {
   background(0);
 
-  float amplitude = 6;
-  float x = amplitude * cos(angle);
-  // Using the concept of angular velocity to increment an angle variable
-  angle += aVelocity;
+  angle = new PVector();
+  velocity = new PVector(random(-0.01,0.01),random(-0.01,0.01));
+  amplitude = new PVector(random(width/2),random(height/2));
 
-  ellipseMode(CENTER);
-  noStroke();
-  fill(0, 255, 255);
+  angle.add(velocity);
+
+  float x = sin(angle.x)*amplitude.x;
+  float y = sin(angle.y)*amplitude.y;
+
+  pushMatrix();
   translate(width/2,height/2);
-  ellipse(x,0,4,4);
+  stroke(0);
+  fill(0,255,255);
+  ellipse(x,y,4,4);
+  popMatrix();
 }
