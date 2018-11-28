@@ -1,11 +1,6 @@
 String waterFile = "water_nospaces.csv";
 int waterSize = 4;
 ArrayList<WaterPos> waterPositions = new ArrayList();
-float pointDist;
-float pointRad;
-float pointAngle;
-float pointerDist;
-float pointOpacity;
 
 void loadWater() {
   background(0);
@@ -28,6 +23,11 @@ void loadWater() {
 }
 
 void vizWater() {
+  float pointDist;
+  float pointRad;
+  float pointAngle;
+  float pointerDist;
+  float pointOpacity;
   background(0);
   noStroke();
 
@@ -37,9 +37,9 @@ void vizWater() {
     pointRad = acos((pos.x - (width/2)) / pointDist);
     pointAngle = degrees(pointRad);
     pointerDist = angle - pointAngle;
-    println(pointerDist);
+    //println(pointerDist);
     if(pointerDist < 60 && pointerDist > 0) {
-      pointOpacity = map(pointerDist, 0, 60, 0, 100);
+      pointOpacity = map(pointerDist, 60, 0, 0, 100);
       fill(147, 203, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
