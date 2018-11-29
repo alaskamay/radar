@@ -42,7 +42,8 @@ void vizWind() {
     pointerDist = pointerAngle - pointAngle;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
-      fill(255, 0, 255, pointOpacity);
+      colorMode(HSB);
+      fill(300, map(wind, 0, 1, 50, 100), 100, pointOpacity);
       ellipse(pos.x, pos.y, windSize, windSize);
     }
   }
