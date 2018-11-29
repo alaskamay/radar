@@ -1,6 +1,7 @@
 String waterFile = "water_nospaces.csv";
 int waterSize = 4;
 ArrayList<WaterPos> waterPositions = new ArrayList();
+ArrayList<Particle> particles;
 
 void loadWater() {
   background(0);
@@ -9,6 +10,7 @@ void loadWater() {
   map.zoomAndPanTo(new Location(46.986991, 8.178334), 8);
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
+  particles = new ArrayList<Particle>();
 
   // Load CSV Wind data
   Table waterDataCSV = loadTable(waterFile, "header, csv");
@@ -42,6 +44,14 @@ void vizWater() {
     pointerDist = pointerAngle - pointAngle;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 80);
+      particles.add(new Particle(pos.x, pos.y, waterSize, pointColor, pointOpacity); 
+      for (Particle p : particles) { 
+        p.run();
+        p.display();
+      }
+      if (particles.size() > 5) {
+        particles.remove(5);
+      }
       fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
