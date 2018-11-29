@@ -11,7 +11,6 @@ float solar = 0;
 float t = 0;
 
 float pointerAngle = 0;
-float adder = 5;
 int position = 0;
 
 UnfoldingMap map;
@@ -37,13 +36,13 @@ void setup() {
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  pointerAngle += 5; 
+  pointerAngle += 3; 
   if(pointerAngle > 360) {
     pointerAngle = 0;
   }
 
   // draw viz
-  background(0);
+  background(0, 0, 0, 50);
   vizWater();
   //vizSolar();
   //vizWind();
@@ -55,7 +54,6 @@ void draw() {
   i.mask(vizMask);
 
   // draw image
-  background(255);
   image(i, 0, 0, width, height);
 
   // reset time

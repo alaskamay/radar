@@ -1,5 +1,5 @@
 String waterFile = "water_nospaces.csv";
-int waterSize = 2;
+int waterSize = 6;
 ArrayList<WaterPos> waterPositions = new ArrayList();
 
 void loadWater() {
@@ -30,24 +30,25 @@ void vizWater() {
   float pointOpacity;
   float pointRadInner;
   float pointerDistMin = 0;
-  float pointerDistMax = 100;
+  float pointerDistMax = 150;
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
     pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRadInner = (pos.x - (width/2)) / pointDist;
-    if(pos.x > (width/2)) {
-      pointAngle = map(pointRadInner, 1, -1, 0, 180);
-      //pointAngle = acos(pointRadInner) + PI;
+    if(pos.y < (height/2)) {
+      pointAngle = map(pointRadInner, 1, -1, 3, 180);
     } else {
-      pointAngle = map(pointRadInner, -1, 1, 180, 360);
-      //pointAngle = acos(pointRadInner);
+      pointAngle = map(pointRadInner, -1, 1, 183, 360);
     }
-    //pointRad = degrees(pointAngle);
+    //pointAngle = degrees(pointRad);
     pointerDist = pointerAngle - pointAngle;
+    if(pointerDist < -340 && pointerDist > -360) {
+      pointerDist = map(pointerDist, -300, -360, 150, 0);
+    }
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
-      pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 30, 100);
+      pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
       fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
