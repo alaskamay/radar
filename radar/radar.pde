@@ -45,7 +45,7 @@ void draw() {
   background(0);
   vizWater();
   vizSolar();
-  //vizWind();
+  vizWind();
   
   // get image
   PImage i = get();
