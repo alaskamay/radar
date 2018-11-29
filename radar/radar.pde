@@ -10,8 +10,8 @@ float solar = 0;
 
 float t = 0;
 
-float pointerAngle = -1;
-float adder = 0.05;
+float pointerAngle = 0;
+float adder = 5;
 int position = 0;
 
 UnfoldingMap map;
@@ -37,9 +37,9 @@ void setup() {
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  pointerAngle += adder; 
-  if(pointerAngle > 1 || pointerAngle < -1) {
-    adder *= -1;
+  pointerAngle += 5; 
+  if(pointerAngle > 360) {
+    pointerAngle = 0;
   }
 
   // draw viz

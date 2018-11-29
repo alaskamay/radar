@@ -24,22 +24,29 @@ void loadWater() {
 
 void vizWater() {
   float pointDist;
-  //float pointRad;
-  //float pointAngle;
+  float pointRad;
+  float pointAngle;
   float pointerDist;
   float pointOpacity;
   float pointRadInner;
   float pointerDistMin = 0;
-  float pointerDistMax = .6;
+  float pointerDistMax = 100;
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {
     ScreenPosition pos = map.getScreenPosition(waterPos.location);
     pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRadInner = (pos.x - (width/2)) / pointDist;
-    pointerDist = pointerAngle - pointRadInner;
-    println(pointerDist);
-    if(pointerDist < pointerDistMax && pointerDist > pointerDistMin && pointerDist > 0) {
+    if(pos.x > (width/2)) {
+      pointAngle = map(pointRadInner, 1, -1, 0, 180);
+      //pointAngle = acos(pointRadInner) + PI;
+    } else {
+      pointAngle = map(pointRadInner, -1, 1, 180, 360);
+      //pointAngle = acos(pointRadInner);
+    }
+    //pointRad = degrees(pointAngle);
+    pointerDist = pointerAngle - pointAngle;
+    if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 30, 100);
       fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
