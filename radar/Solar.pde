@@ -55,7 +55,7 @@ void vizSolar() {
       if(solar > 0 && pointerDist > 0) {
         noFill();
         stroke(255, 255, 0, pointOpacity);
-        ellipse(pos.x, pos.y, 50/pointerDist, 50/pointerDist);
+        ellipse(pos.x, pos.y, pointerDist/2, pointerDist/2);
       }
     }
   }
