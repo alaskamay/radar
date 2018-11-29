@@ -1,5 +1,5 @@
 String windFile = "wind_nospaces.csv";
-int windSize = 3;
+int windSize = 10;
 ArrayList<WindPos> windPositions = new ArrayList();
 
 void loadWind() {
@@ -30,16 +30,23 @@ void vizWind() {
   float pointOpacity;
   float pointRadInner;
   float pointerDistMin = 0;
-  float pointerDistMax = 0.1;
+  float pointerDistMax = 150;
   noStroke();
 
   for (WindPos windPos : windPositions) {
     ScreenPosition pos = map.getScreenPosition(windPos.location);
     pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRadInner = (pos.x - (width/2)) / pointDist;
-    pointRad = acos(pointRadInner);
-    // pointAngle = degrees(pointRad);
-    pointerDist = pointerAngle - pointRadInner;
+    if(pos.y < (height/2)) {
+      pointAngle = map(pointRadInner, 1, -1, 3, 180);
+    } else {
+      pointAngle = map(pointRadInner, -1, 1, 183, 360);
+    }
+    //pointAngle = degrees(pointRad);
+    pointerDist = pointerAngle - pointAngle;
+    if(pointerDist < -340 && pointerDist > -360) {
+      pointerDist = map(pointerDist, -300, -360, 150, 0);
+    }
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
       fill(255, 0, 255, pointOpacity);

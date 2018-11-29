@@ -30,7 +30,7 @@ void vizWater() {
   float pointOpacity;
   float pointRadInner;
   float pointerDistMin = 0;
-  float pointerDistMax = 150;
+  float pointerDistMax = 120;
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {

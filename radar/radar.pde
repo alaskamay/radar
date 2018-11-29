@@ -29,8 +29,8 @@ void setup() {
   vizMask.endDraw();
   
   loadWater();
-  //loadSolar();
-  //loadWind();
+  loadSolar();
+  loadWind();
 } 
 
 void draw() {
@@ -44,8 +44,8 @@ void draw() {
   // draw viz
   background(0, 0, 0, 50);
   vizWater();
-  //vizSolar();
-  //vizWind();
+  vizSolar();
+  vizWind();
   
   // get image
   PImage i = get();

@@ -1,5 +1,5 @@
 String solarFile = "solar_nospaces.csv";
-int solarSize = 1;
+int solarSize = 5;
 ArrayList<SolarPos> solarPositions = new ArrayList();
 
 void loadSolar() {
@@ -30,20 +30,33 @@ void vizSolar() {
   float pointOpacity;
   float pointRadInner;
   int pointerDistMin = 0;
-  int pointerDistMax = 60;
+  int pointerDistMax = 80;
   noStroke();
 
   for (SolarPos solarPos : solarPositions) {
     ScreenPosition pos = map.getScreenPosition(solarPos.location);
     pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRadInner = (pos.x - (width/2)) / pointDist;
-    pointRad = acos(pointRadInner);
-    pointAngle = degrees(pointRad);
+    if(pos.y < (height/2)) {
+      pointAngle = map(pointRadInner, 1, -1, 3, 180);
+    } else {
+      pointAngle = map(pointRadInner, -1, 1, 183, 360);
+    }
+    //pointAngle = degrees(pointRad);
     pointerDist = pointerAngle - pointAngle;
+    if(pointerDist < -340 && pointerDist > -360) {
+      pointerDist = map(pointerDist, -300, -360, 150, 0);
+    }
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
+      noStroke();
       fill(255, 255, 0, pointOpacity);
       ellipse(pos.x, pos.y, solarSize, solarSize);
+      if(solar > 0 && pointerDist > 0) {
+        noFill();
+        stroke(255, 255, 0, pointOpacity);
+        ellipse(pos.x, pos.y, 50/pointerDist, 50/pointerDist);
+      }
     }
   }
 }
