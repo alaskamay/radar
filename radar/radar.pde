@@ -29,7 +29,7 @@ void setup() {
   vizMask.endDraw();
   
   loadWater();
-  //loadSolar();
+  loadSolar();
   //loadWind();
 } 
 
@@ -43,7 +43,7 @@ void draw() {
 
   // draw viz
   vizWater();
-  //vizSolar();
+  vizSolar();
   //vizWind();
   
   // get image

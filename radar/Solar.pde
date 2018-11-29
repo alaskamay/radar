@@ -23,11 +23,27 @@ void loadSolar() {
 }
 
 void vizSolar() {
+  float pointDist;
+  float pointRad;
+  float pointAngle;
+  float pointerDist;
+  float pointOpacity;
+  float pointRadInner;
+  int pointerDistMin = 0;
+  int pointerDistMax = 60;
   noStroke();
 
   for (SolarPos solarPos : solarPositions) {
     ScreenPosition pos = map.getScreenPosition(solarPos.location);
-    fill(255, 231, 147, 100);
-    ellipse(pos.x, pos.y, solarSize, solarSize);
+    pointDist = dist(width/2, height/2, pos.x, pos.y);
+    pointRadInner = (pos.x - (width/2)) / pointDist;
+    pointRad = acos(pointRadInner);
+    pointAngle = degrees(pointRad);
+    pointerDist = pointerAngle - pointAngle;
+    if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
+      pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
+      fill(255, 255, 0, pointOpacity);
+      ellipse(pos.x, pos.y, solarSize, solarSize);
+    }
   }
 }
