@@ -30,7 +30,7 @@ void vizWater() {
   float pointOpacity;
   float pointRadInner;
   int pointerDistMin = 0;
-  int pointerDistMax = 60;
+  int pointerDistMax = 100;
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {
@@ -41,7 +41,7 @@ void vizWater() {
     pointAngle = degrees(pointRad);
     pointerDist = pointerAngle - pointAngle;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
-      pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
+      pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 80);
       fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }

@@ -30,7 +30,7 @@ void setup() {
   
   loadWater();
   loadSolar();
-  //loadWind();
+  loadWind();
 } 
 
 void draw() {
@@ -42,9 +42,10 @@ void draw() {
   }
 
   // draw viz
+  background(0);
   vizWater();
   vizSolar();
-  //vizWind();
+  vizWind();
   
   // get image
   PImage i = get();
