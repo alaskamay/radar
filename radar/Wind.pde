@@ -1,5 +1,5 @@
 String windFile = "wind_nospaces.csv";
-int windSize = 5;
+int windSize = 3;
 ArrayList<WindPos> windPositions = new ArrayList();
 
 void loadWind() {
@@ -29,8 +29,8 @@ void vizWind() {
   float pointerDist;
   float pointOpacity;
   float pointRadInner;
-  int pointerDistMin = 0;
-  int pointerDistMax = 100;
+  float pointerDistMin = 0;
+  float pointerDistMax = 0.1;
   noStroke();
 
   for (WindPos windPos : windPositions) {
@@ -38,8 +38,8 @@ void vizWind() {
     pointDist = dist(width/2, height/2, pos.x, pos.y);
     pointRadInner = (pos.x - (width/2)) / pointDist;
     pointRad = acos(pointRadInner);
-    pointAngle = degrees(pointRad);
-    pointerDist = pointerAngle - pointAngle;
+    // pointAngle = degrees(pointRad);
+    pointerDist = pointerAngle - pointRadInner;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
       fill(255, 0, 255, pointOpacity);
