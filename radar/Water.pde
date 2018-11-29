@@ -42,8 +42,7 @@ void vizWater() {
     pointerDist = pointerAngle - pointAngle;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 80);
-      colorMode(HSB);
-      fill(180, map(water, 0, 1, 50, 100), 100, pointOpacity);
+      fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
     }
   }

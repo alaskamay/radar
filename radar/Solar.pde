@@ -42,8 +42,7 @@ void vizSolar() {
     pointerDist = pointerAngle - pointAngle;
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
-      colorMode(HSB);
-      fill(60, map(solar, 0, 1, 50,100), 100, pointOpacity);
+      fill(255, 255, 0, pointOpacity);
       ellipse(pos.x, pos.y, solarSize, solarSize);
     }
   }
