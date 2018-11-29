@@ -10,7 +10,7 @@ float solar = 0;
 
 float t = 0;
 
-int pointerAngle = 180;
+int pointerAngle = 360;
 int position = 0;
 
 UnfoldingMap map;
@@ -38,14 +38,14 @@ void draw() {
   t += 1.0 / 60.0 / 15.0;
   pointerAngle = pointerAngle - 5;
   if(pointerAngle < 0) {
-    pointerAngle = 380;
+    pointerAngle = 360;
   }
 
   // draw viz
   background(0);
   vizWater();
-  vizSolar();
-  vizWind();
+  //vizSolar();
+  //vizWind();
   
   // get image
   PImage i = get();
