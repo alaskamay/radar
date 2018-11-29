@@ -10,7 +10,7 @@ float solar = 0;
 
 float t = 0;
 
-int angle = 180;
+int pointerAngle = 180;
 int position = 0;
 
 UnfoldingMap map;
@@ -28,23 +28,23 @@ void setup() {
   vizMask.ellipse(width/2, height/2, height, height);
   vizMask.endDraw();
   
-  //loadSolar();
   loadWater();
+  //loadSolar();
   //loadWind();
 } 
 
 void draw() {
   // increment time
   t += 1.0 / 60.0 / 15.0;
-  angle = angle - 5;
-  if(angle < 0) {
-    angle = 180;
+  pointerAngle = pointerAngle - 5;
+  if(pointerAngle < 0) {
+    pointerAngle = 380;
   }
 
   // draw viz
-  //vizWind();
   vizWater();
   //vizSolar();
+  //vizWind();
   
   // get image
   PImage i = get();

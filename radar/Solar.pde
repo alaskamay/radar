@@ -6,7 +6,7 @@ void loadSolar() {
   background(0);
   // Create interactive map centered around Switzerland
   map = new UnfoldingMap(this);
-  map.zoomAndPanTo(7, new Location(46.986991, 8.178334));
+  map.zoomAndPanTo(new Location(46.986991, 8.178334), 8);
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
  
