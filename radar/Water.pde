@@ -49,8 +49,14 @@ void vizWater() {
     }
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
+      noStroke();
       fill(0, 255, 255, pointOpacity);
       ellipse(pos.x, pos.y, waterSize, waterSize);
+      if(water > 0 && pointDist > 0) {
+        noFill();
+        stroke(0, 255, 255, pointOpacity);
+        ellipse(pos.x, pos.y, pointDist/10, pointDist/10);
+      }
     }
   }
 }
