@@ -31,6 +31,7 @@ void vizWind() {
   float pointRadInner;
   float pointerDistMin = 0;
   float pointerDistMax = 150;
+  float circleSizeWind;
   noStroke();
 
   for (WindPos windPos : windPositions) {
@@ -55,7 +56,9 @@ void vizWind() {
       if(wind > 0 && pointerDist > 0) {
         noFill();
         stroke(255, 0, 255, pointOpacity);
-        ellipse(pos.x, pos.y, pointerDist, pointerDist);
+        strokeWeight(3);
+        circleSizeWind = map(pointerDist, 0, 150, 60, 0);
+        ellipse(pos.x, pos.y, circleSizeWind, circleSizeWind);
       }
     }
   }

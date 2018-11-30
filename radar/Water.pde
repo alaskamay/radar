@@ -31,6 +31,7 @@ void vizWater() {
   float pointRadInner;
   float pointerDistMin = 0;
   float pointerDistMax = 120;
+  float circleSizeWater;
   noStroke();
 
   for (WaterPos waterPos : waterPositions) {
@@ -55,7 +56,9 @@ void vizWater() {
       if(water > 0 && pointDist > 0) {
         noFill();
         stroke(0, 255, 255, pointOpacity);
-        ellipse(pos.x, pos.y, pointDist/10, pointDist/10);
+        strokeWeight(1);
+        circleSizeWater = map(pointerDist, 0, 150, 50, 0);
+        ellipse(pos.x, pos.y, circleSizeWater, circleSizeWater);
       }
     }
   }

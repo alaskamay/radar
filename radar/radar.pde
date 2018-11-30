@@ -42,7 +42,7 @@ void draw() {
   }
 
   // draw viz
-  background(0, 0, 0, 50);
+  background(0, 50);
   vizWater();
   vizSolar();
   vizWind();

@@ -31,6 +31,7 @@ void vizSolar() {
   float pointRadInner;
   int pointerDistMin = 0;
   int pointerDistMax = 80;
+  float circleSizeSolar;
   noStroke();
 
   for (SolarPos solarPos : solarPositions) {
@@ -55,7 +56,9 @@ void vizSolar() {
       if(solar > 0 && pointerDist > 0) {
         noFill();
         stroke(255, 255, 0, pointOpacity);
-        ellipse(pos.x, pos.y, pointerDist/2, pointerDist/2);
+        strokeWeight(1 );
+        circleSizeSolar = map(pointerDist, 150, 0, 0, 20);
+        ellipse(pos.x, pos.y, circleSizeSolar, circleSizeSolar);
       }
     }
   }
