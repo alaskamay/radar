@@ -49,8 +49,14 @@ void vizWind() {
     }
     if(pointerDist < pointerDistMax && pointerDist > pointerDistMin) {
       pointOpacity = map(pointerDist, pointerDistMax, pointerDistMin, 0, 100);
+      noStroke();
       fill(255, 0, 255, pointOpacity);
       ellipse(pos.x, pos.y, windSize, windSize);
+      if(wind > 0 && pointerDist > 0) {
+        noFill();
+        stroke(255, 0, 255, pointOpacity);
+        ellipse(pos.x, pos.y, pointerDist, pointerDist);
+      }
     }
   }
 }
